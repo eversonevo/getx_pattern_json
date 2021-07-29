@@ -22,6 +22,7 @@ class ProductController extends GetxController {
   @override
   void onInit() async {
     testeProd.value = await productRepository.carregaJson();
+    print("tamanho:${testeProd.length}");
     print("passei antes");
     super.onInit();
   }
