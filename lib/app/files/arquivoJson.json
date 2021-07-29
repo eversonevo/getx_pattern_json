@@ -1,0 +1,8 @@
+{
+"products":[
+{"idProduct":"1","description":"Calçaa Jeans","title":"Calça","price":"25"},
+{"idProduct":"2","description":"Camisa Polo","title":"Camisa","price":"10"},
+{"idProduct":"3","description":"Blusa Quente","title":"Blusa","price":"56"},
+{"idProduct":"4","description":"Calção de Pegar Porco","title":"Calção","price":"30"}
+]
+}
