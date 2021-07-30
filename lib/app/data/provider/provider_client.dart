@@ -1,7 +1,5 @@
-import 'package:flutter_vscode3/app/data/model/client.dart';
 import 'package:flutter_vscode3/app/data/provider/DB/client_DB.dart';
 import 'package:flutter_vscode3/app/data/repository/client_repository.dart';
-import 'package:sqflite/sqlite_api.dart';
 //import 'package:sqflite/sqflite.dart';
 
 class ClientProvider implements ClientRepository {

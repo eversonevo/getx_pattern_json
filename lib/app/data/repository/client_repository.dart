@@ -1,4 +1,3 @@
-import 'package:flutter_vscode3/app/data/model/client.dart';
 import 'package:flutter_vscode3/app/data/provider/provider_client.dart';
 
 class ClientRepository {
@@ -9,8 +8,8 @@ class ClientRepository {
     _clientProvider.openBD();
   }
 
-  void insertDB(Client client) {
-    _clientProvider.insertDB(client);
+  void insertDB() {
+    _clientProvider.insertDB();
   }
 
   void deleteDB(String idClient) {
@@ -26,6 +25,6 @@ class ClientRepository {
   }
 
   void getAllDB() {
-    _clientProvider.getAllDB();
+    _clientProvider.getAllDB();    
   }
 }
