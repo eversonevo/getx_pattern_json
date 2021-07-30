@@ -53,7 +53,19 @@ class ClientView extends StatelessWidget {
                   clientController.createDB();
                   //clientController.printList();
                 },
-                child: Text("carrega Json"))
+                child: Text("carrega DB")),
+                ElevatedButton(
+                onPressed: () {
+                  clientController.getAll();
+                  //clientController.printList();
+                },
+                child: Text("Pesquisa DB")),
+                ElevatedButton(
+                onPressed: () {
+                  clientController.insereDB();
+                  //clientController.printList();
+                },
+                child: Text("Insere DB"))
           ],
         ));
   }

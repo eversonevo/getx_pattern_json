@@ -3,7 +3,7 @@ import 'package:flutter_vscode3/app/data/repository/client_repository.dart';
 import 'package:get/get.dart';
 
 class ClientController extends GetxController {
-  final ClientRepository productRepository = ClientRepository();
+  final ClientRepository clientRepository = ClientRepository();
 
   RxList<Product> testeProd = <Product>[].obs;
   //List<Product> _testeProd = [];
@@ -30,7 +30,16 @@ class ClientController extends GetxController {
     print("nonono" + testeProd[1].idProduct);
   }
 
-  createDB() {
-    productRepository.openBD();
+  insereDB(){
+    clientRepository.insertDB();
   }
+
+  createDB() {
+    clientRepository.openBD();
+  }
+
+  getAll() async{
+    clientRepository.getAllDB();    
+  }
+
 }
