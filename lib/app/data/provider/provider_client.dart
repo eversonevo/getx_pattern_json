@@ -1,23 +1,21 @@
-
-
-
-import 'dart:io';
-
 import 'package:flutter_vscode3/app/data/model/client.dart';
+import 'package:flutter_vscode3/app/data/provider/DB/client_DB.dart';
 import 'package:flutter_vscode3/app/data/repository/client_repository.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class ClientProvider implements ClientRepository {
+  late DatabaseHelper _dataHelper;
 
-static final _databaseName = "clientDB.db";
-static final _databaseVersion = 1;
-static final table = "clients";
-static final columnId = 'idClient';
-static final columnName = 'nameClient';
-static final columnPhone = 'phoneClient';
+/*
 
-late Client _client;
+  static final _databaseName = "clientDB.db";
+  static final _databaseVersion = 1;
+  static final table = "clients";
+  static final columnId = 'idClient';
+  static final columnName = 'nameClient';
+  static final columnPhone = 'phoneClient';
+
+  late Client _client;
 
   Client get client => _client;
 
@@ -27,116 +25,102 @@ late Client _client;
 
 //ClientProvider._privateConstructor();
 //static final ClientProvider instance = ClientProvider._privateConstructor();
-static Database? _database;
+  static Database _database;
 
-Future<Database> get database async {
-  if (_database != null) return _database;
-  _database = await _initDatabase();
-  return _database;
-}
+  Future<Database> get database async {
+    if (_database != null) return _database;
+    _database = await _initDatabase();
+    return _database;
+  }
 
+  Future<Database> getDatabase() async {
+    Directory documentsDirectory = await getApplicationDocumentsDirectory();
 
-Future<Database> getDatabase() async {
-  Directory documentsDirectory = await getApplicationDocumentsDirectory();
+    String path = join(documentsDirectory.path, 'novobanco.db');
+    return openDatabase(
+      path,
+      onCreate: (db, version) {
+        db.execute(ContactDao.tableSql);
+      },
+      version: 1,
+    );
+  }
 
-  String path = join(documentsDirectory.path, 'novobanco.db');
-  return openDatabase(
-    path,
-    onCreate: (db, version) {
-      db.execute(ContactDao.tableSql);
-    },
-    version: 1,
-  );
-}
+  _initDatabase() async {
+    var databasesPath = await getDatabasesPath();
+    String path = join(databasesPath, _databaseName);
+    return await openDatabase(path,
+        version: _databaseVersion, onCreate: _onCreate);
+  }
 
-
-
-_initDatabase() async {
-  var databasesPath  = await getDatabasesPath();
-  String path = join(databasesPath, _databaseName);
-  return await openDatabase(path,
-  version: _databaseVersion, onCreate: _onCreate);
-}
-
-Future _onCreate(Database db, int version) async {
-  await db.execute('''
+  Future _onCreate(Database db, int version) async {
+    await db.execute('''
   CREATE TABLE $table (
     $columnId INTEGER PRIMARY KEY AUTOINCREMENT,
     $columnName TEXT NOT NULL
     $columnPhone TEXT NOT NULL
   )
   ''');
-}
-
-
-  void criaBD(){
-
   }
+*/
+  void createBD() async {
+    _dataHelper = DatabaseHelper.instance;
 
-  void abreBD(){
+    _dataHelper.database;
 
-  }
-
-  @override
-  void insertDB(Client client){
-
+    //print("Banco de Dados ${db.getVersion()}");
   }
 
   @override
-  void deleteDB(String idClient){
-
+  void openBD() {
+    createBD();
   }
 
   @override
-  void updateDB(String idClient){
-
-  }
+  void insertDB(Client client) {}
 
   @override
-  void searchDB(String item){
-
-  }
+  void deleteDB(String idClient) {}
 
   @override
-  void getAllDB(){
+  void updateDB(String idClient) {}
 
+  @override
+  void searchDB(String item) {}
+
+  @override
+  void getAllDB() {}
+}
+
+/*class DatabaseHelper {
+  static final table = "todo";
+  static final columnId = 'id';
+  static final columnTitle = 'title';
+
+  Future<int> insert(TaskData todo) async {
+    Database db = await instance.database;
+    var res = await db.insert(table, todo.toMap());
+    return res;
   }
 
+  Future<List<Map<String, dynamic>>> queryAllRows() async {
+    Database db = await instance.database;
+    var res = await db.query(table, orderBy: "$columnId DESC");
+    return res;
+  }
+
+  Future<int> delete(int id) async {
+    Database db = await instance.database;
+    return await db.delete(table, where: '$columnId = ?', whereArgs: [id]);
+  }
+
+  Future<void> clearTable() async {
+    Database db = await instance.database;
+    return await db.rawQuery("DELETE FROM $table");
+  }
 }
 
-
-
-
-class DatabaseHelper {
-
-static final table = "todo";
-static final columnId = 'id';
-static final columnTitle = 'title';
-
-
-
-
-Future<int> insert(TaskData todo) async {
-  Database db = await instance.database;
-  var res = await db.insert(table, todo.toMap());  
-  return res;
-}
-Future<List<Map<String, dynamic>>> queryAllRows() async {
-  Database db = await instance.database;
-  var res = await db.query(table, orderBy: "$columnId DESC");
-  return res;
-}
-Future<int> delete(int id) async {
-  Database db = await instance.database;
-  return await db.delete(table, where: '$columnId = ?', whereArgs:     [id]);
-}
-Future<void> clearTable() async {
-  Database db = await instance.database;
-  return await db.rawQuery("DELETE FROM $table");
- }
-}
-
-
+*/
 
 
 
