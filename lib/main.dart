@@ -11,6 +11,7 @@ void main() {
         debugShowCheckedModeBanner: false,
         getPages: AppPages.routes,
         initialRoute: Routes.HOME,
+        //initialRoute: Routes.HOME2,  // rota com resposividade  funcionando
         themeMode: ThemeMode.system,
         locale: Locale('pt','BR'),
       )

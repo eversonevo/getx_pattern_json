@@ -1,4 +1,5 @@
 import 'package:flutter_vscode3/app/UI/client/client_view.dart';
+import 'package:flutter_vscode3/app/UI/home/android/home2/home_page.dart';
 import 'package:flutter_vscode3/app/UI/home/android/home_view.dart';
 import 'package:flutter_vscode3/app/UI/product/android/products_view.dart';
 import 'package:flutter_vscode3/app/bindings/bindings_client.dart';
@@ -22,7 +23,7 @@ class AppPages {
       name: Routes.HOME,
       page: () => HomeView(),
     ),
-    //GetPage(name: Rotas.PRINCIPAL, page: () => PaginaPrincipal(),binding: PrincipalLigacao()),
+    GetPage(name: Routes.HOME2, page: () => HomePage()),
     //GetPage(name: Rotas.CADASTROALUNOS, page: () => PaginaMatriculas(),binding: MatriculasLigacao()),
     //GetPage(name: Rotas.CADASTROLIVROS, page: () => PaginaLivros(),binding: LivrosLigacao()),
     //GetPage(name: Rotas.EMPRESTIMOS, page: () => PaginaEmprestimos(),binding: EmprestimosLigacao()),
