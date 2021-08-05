@@ -8,7 +8,10 @@ import 'app/routes/app_routes.dart';
 
 void main() {
   runApp(
-/*      GetMaterialApp(
+
+// QUANDO NÃO FOR USAR DEVICE PREVIEW
+    /*  
+      GetMaterialApp(
         title: 'Teste',
         debugShowCheckedModeBanner: false,
         getPages: AppPages.routes,
@@ -16,7 +19,9 @@ void main() {
         //initialRoute: Routes.HOME2,  // rota com resposividade  funcionando
         themeMode: ThemeMode.system,
         locale: Locale('pt','BR'),
-      )*/
+      )
+*/
+//   QUANDO FOR USAR O DEVICE PREVIEW
 
       DevicePreview(
         builder: (context)=>
@@ -24,8 +29,8 @@ void main() {
           title: 'Teste',
           debugShowCheckedModeBanner: false,
           getPages: AppPages.routes,
-          //initialRoute: Routes.HOME,
-          initialRoute: Routes.HOME2,  // rota com resposividade  funcionando
+          initialRoute: Routes.HOME,
+          //initialRoute: Routes.HOME2,  // rota com resposividade  funcionando
           themeMode: ThemeMode.system,
           locale: Locale('pt','BR'),),
         

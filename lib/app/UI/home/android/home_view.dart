@@ -20,7 +20,13 @@ class HomeView extends StatelessWidget {
             }, child: Text("Products")),
             ElevatedButton(onPressed: (){
               Get.toNamed(Routes.CLIENT);
-            }, child: Text("Clients"))
+            }, child: Text("Clients")),
+            ElevatedButton(onPressed: (){
+              Get.toNamed(Routes.HOME2);
+            }, child: Text("Home2")),
+            ElevatedButton(onPressed: (){
+              Get.toNamed(Routes.HOME3);
+            }, child: Text("Home3"))
           ],
         ),
           

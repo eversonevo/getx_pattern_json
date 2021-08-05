@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
       builder: (context, constraints){
         return Scaffold(
           backgroundColor: Colors.black,
-          // coloca a AppBar dentro do PreferredSize
+          // coloca a AppBar dentro do PreferredSize, se for tela pequena é mobile, senão web
           appBar: constraints.maxWidth < mobileBreakPoint ?
           PreferredSize(
               child: MobileAppBar(),
